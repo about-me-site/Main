@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>MCA</title>
+
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap">
+
+   <script src="https://kit.fontawesome.com/7741301c29.js" crossorigin="anonymous"></script>
+
+   <link rel="stylesheet" href="style.css">
+
+   <link rel="shortcut icon" type="image/png" href="media/MCA_logo.png">
+</head>
+
+<body class="mca-theme">
+   <div id="loader-overlay">
+      <h2 id="loader-text">LOADING...</h2>
+   </div>
+
+   <nav class="top-nav mca-theme-nav">
+      <a href="index.html" class="nav-link">MAIN</a>
+      <a href="#" class="nav-link active">MCA PASSION</a>
+   </nav>
+   
+   <video autoplay muted playsinline id="background-video-1" class="active-video" poster="media/icon.png">
+      <source src="media/YTDown.com_YouTube_Joyeux-anniversaire-mouloudia-algeria-fo_Media_-oWaquk0-CU_001_1080p.mp4" type="video/mp4"> 
+   </video>
+
+   <video muted playsinline id="background-video-2" class="hidden-video" poster="media/icon.png">
+      <source src="media/YTDown.com_YouTube_Media_Ua2OLzL4WRg_001_1080p.mp4" type="video/mp4">
+   </video>
+
+   <main class="wrapper">
+      <h1 class="title2">
+         <span class="mca-text">Mouloudia Club d'Alger</span>
+      </h1>
+      <h2 class="subtitle">
+         <span class="glitch-text mca-glitch">Club du Doyen | Forever Green and Red</span>
+      </h2>
+
+      <audio loop id="mcaAudio">
+         <source src="media/Groupe Torino 2017 Mouloudia rosso verde (mp3cut.net).mp3" type="audio/mp3">
+      </audio>
+
+      <button id="mcaPlayButton" class="mca-button button">
+          <i class="fa-solid fa-play"></i> Unmute
+      </button>
+      <input type="range" id="mcaVolumeSlider" min="0" max="1" step="0.01" value="0.5" aria-label="MCA Volume control">
+      
+      <div class="mca-info">
+<p> Born in <strong>1921</strong>, Mouloudia Club d'Alger stands as the first Algerian Muslim club a symbol of identity, resistance, and pride. The fire of the <strong>Chnaoua</strong> burns far beyond the stadium, carried in every heart that bleeds red and green. </p>
+<p> The soul of the <strong>MCA</strong> lives in the heart of Algiers from <strong>"Ram Jaw Lawlad Casbah Bab El Oued"</strong>. And me? I carry all of that in my blood. This page reflects who I am a devoted lover of <strong>MCA</strong>, shaped by its history, its pride, and the unbreakable spirit of the <strong>Doyen</strong>. </p>
+      </div>
+      <nav class="bottomButtons mca-social">
+         <a href="#" target="_blank" class="social-link" aria-label="MCA Instagram">
+            <i class="fa-brands fa-instagram"></i>
+         </a>
+
+         <a href="#" target="_blank" class="social-link" aria-label="MCA Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+         </a>
+      </nav>
+      
+   </main> 
+   
+   <script src="script.js"></script>
+</body>
+</html>

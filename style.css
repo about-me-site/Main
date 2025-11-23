@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  color: #fff;
+  background: #111;
+  overflow-x: hidden;
+  overflow-y: hidden; 
+  cursor: default;
+}
+
+/* --- NEW: TOP NAVIGATION BAR STYLES (MODIFIED) --- */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* FIXED: Centers the buttons horizontally */
+    gap: 10px;
+    padding: 15px 25px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 50; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1); 
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255, 85, 0, 0.15); 
+    border-color: #FF5500;
+    color: #FF5500;
+    box-shadow: 0 0 8px #FF5500;
+}
+
+/* MCA Theme Nav Overrides (Green) */
+.mca-theme-nav .nav-link:hover,
+.mca-theme-nav .nav-link.active {
+    background: rgba(0, 255, 85, 0.15); /* Greenish hover */
+    border-color: var(--mca-primary-color);
+    color: var(--mca-primary-color);
+    box-shadow: 0 0 8px var(--mca-primary-color);
+}
+/* --- END TOP NAVIGATION BAR STYLES --- */
+
+
+/* --- 1. LOADER OVERLAY STYLES --- */
+#loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; 
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out, visibility 1.5s;
+}
+
+#loader-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#loader-text {
+    font-size: 2.5rem;
+    color: #FF5500;
+    text-shadow: 
+        0 0 5px #FF5500,
+        0 0 10px #FF3300,
+        0 0 20px #FF3300;
+    letter-spacing: 5px;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+
+/* --- STAR FIELD EFFECT --- */
+#star-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Small Stars Layer - Pure CSS Box Shadow Star Field */
+#star-field::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    box-shadow: 
+        100px 200px #FFF, 250px 100px #FFF, 400px 50px #FFF, 550px 250px #FFF, 700px 350px #FFF, 850px 150px #FFF, 1000px 400px #FFF, 1150px 50px #FFF, 1300px 250px #FFF, 1450px 450px #FFF, 1600px 200px #FFF, 1750px 100px #FFF, 1900px 300px #FFF, 
+        50px 600px #FFF, 200px 750px #FFF, 350px 850px #FFF, 500px 650px #FFF, 650px 700px #FFF, 800px 900px #FFF, 950px 600px #FFF, 1100px 850px #FFF, 1250px 750px #FFF, 1400px 950px #FFF, 1550px 700px #FFF, 1700px 600px #FFF, 1850px 800px #FFF,
+        100px 1200px #FFF, 250px 1300px #FFF, 400px 1450px #FFF, 550px 1250px #FFF, 700px 1350px #FFF, 850px 1150px #FFF, 1000px 1400px #FFF, 1150px 1050px #FFF, 1300px 1250px #FFF, 1450px 1450px #FFF, 1600px 1200px #FFF, 1750px 1100px #FFF, 1900px 1300px #FFF,
+        50px 1600px #FFF, 200px 1750px #FFF, 350px 1850px #FFF, 500px 1650px #FFF, 650px 1700px #FFF, 800px 1900px #FFF, 950px 1600px #FFF, 1100px 1850px #FFF, 1250px 1750px #FFF, 1400px 1950px #FFF, 1550px 1700px #FFF, 1700px 1600px #FFF, 1850px 1800px #FFF;
+    animation: star-fall 100s linear infinite;
+}
+
+@keyframes star-fall {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(2000px);
+    }
+}
+
+
+/* NEW: Styles for the two video elements (used on mca.html) */
+#background-video-1,
+#background-video-2 {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s ease; /* Smooth transition when switching videos */
+}
+
+/* The style for the single video element (used on index.html) */
+#background-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Class to make the currently playing MCA video visible */
+.active-video {
+    opacity: 1 !important;
+}
+
+/* Class to hide the other MCA video */
+.hidden-video {
+    opacity: 0 !important;
+}
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  min-height: 100vh; 
+  text-align: center;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 20px;
+  /* Add padding equal to nav height + some space */
+  padding-top: 80px; 
+  z-index: 1;
+}
+
+/* --- MCA THEME VARIABLES & OVERRIDES --- */
+.mca-theme {
+    /* Define MCA colors as CSS variables for easy overriding */
+    --mca-primary-color: #00FF55; /* Neon Green */
+    --mca-secondary-color: #FF0000; /* Red */
+    --mca-glow-color: #00FF55;
+}
+
+/* Override Glitch and Neon colors for the MCA page */
+.mca-theme #loader-text,
+.mca-theme .mca-text,
+.mca-theme .mca-glitch,
+.mca-theme .mca-social .social-link:hover {
+    color: var(--mca-primary-color) !important;
+}
+
+/* Override Loader/Glitch Neon glow */
+.mca-theme #loader-text {
+    text-shadow: 
+        0 0 5px var(--mca-primary-color),
+        0 0 10px var(--mca-primary-color),
+        0 0 20px var(--mca-primary-color);
+}
+
+/* Override the glitch colors to use MCA Green and Red */
+.mca-theme .mca-glitch::before {
+    text-shadow: -2px 0 var(--mca-secondary-color) !important; /* Red layer */
+}
+
+.mca-theme .mca-glitch::after {
+    text-shadow: 2px 0 var(--mca-primary-color) !important; /* Green layer */
+}
+
+/* FIX: Override base glitch text shadow to green */
+.mca-theme .glitch-text {
+    text-shadow: 0 0 5px var(--mca-primary-color);
+}
+
+/* FIX: Override general focus glows (nav, social links) on the MCA page to use green */
+.mca-theme .social-link:focus-visible,
+.mca-theme .button:focus-visible,
+.mca-theme .nav-link:focus-visible {
+    outline: none;
+    box-shadow: 
+        0 0 0 3px rgba(0, 255, 85, 0.5), /* Green transparent border */
+        0 0 10px var(--mca-primary-color); /* Green glow */
+}
+
+/* FIX: Override Social Link Hover State on MCA Page */
+.mca-theme .mca-social .social-link:hover {
+    transform: scale(1.05);
+    background: rgba(0, 255, 85, 0.15); /* Greenish background */
+    border-color: var(--mca-primary-color);
+    box-shadow: 
+        0 0 10px var(--mca-primary-color), 
+        0 0 20px var(--mca-primary-color), 
+        0 5px 20px rgba(0, 0, 0, 0.8);
+    color: var(--mca-primary-color);
+}
+
+
+.mca-info {
+    max-width: 600px;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 255, 85, 0.3);
+    border-radius: 10px;
+}
+
+.mca-info p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #FFF;
+}
+/* --- END MCA THEME --- */
+
+
+/* --- TITLE & GLITCH EFFECT (REST OF FILE IS UNCHANGED) --- */
+.title2 {
+    position: relative; 
+    font-size: 2.3rem;
+    margin-bottom: 20px; 
+    color: #fff;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.glitch-text {
+    display: inline-block;
+    color: #fff; 
+    text-shadow: 0 0 5px #FF5500;
+    animation: glitch-anim 4s infinite linear alternate;
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 #00FFFF;
+    animation: glitch-anim-1 4s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: 2px 0 #FF5500; 
+    animation: glitch-anim-2 4s infinite linear alternate;
+}
+
+@keyframes glitch-anim-1 {
+    0% { clip: rect(42px, 9999px, 44px, 0); }
+    10% { clip: rect(10px, 9999px, 30px, 0); }
+    30% { clip: rect(60px, 9999px, 80px, 0); }
+    50% { clip: rect(20px, 9999px, 40px, 0); }
+    70% { clip: rect(80px, 9999px, 100px, 0); }
+    90% { clip: rect(5px, 9999px, 25px, 0); }
+    100% { clip: rect(42px, 9999px, 44px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip: rect(10px, 9999px, 30px, 0); }
+    20% { clip: rect(50px, 9999px, 70px, 0); }
+    40% { clip: rect(5px, 9999px, 25px, 0); }
+    60% { clip: rect(35px, 9999px, 55px, 0); }
+    80% { clip: rect(75px, 9999px, 95px, 0); }
+    100% { clip: rect(10px, 9999px, 30px, 0); }
+}
+
+
+/* 💥 FOCUS MANAGEMENT 💥 */
+*:focus,
+*:focus:active {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
+}
+
+.social-link:focus-visible,
+#volumeSlider:focus-visible,
+.button:focus-visible,
+.nav-link:focus-visible { /* Added nav-link */
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(255, 85, 0, 0.5), 
+    0 0 10px rgba(255, 85, 0, 0.8);
+}
+
+/* --- Mute Button (Flowing inside wrapper) --- */
+.button {
+    margin-top: 15px; 
+    
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 36px;
+    background: rgba(255, 255, 255, 0.1); 
+    color: #fff;
+    cursor: pointer; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* FIX: Override base .button:hover on the MCA page to remove orange glow */
+.mca-theme .button:hover {
+    background: rgba(0, 255, 85, 0.2); 
+    border-color: var(--mca-primary-color);
+    color: var(--mca-primary-color);
+    box-shadow: 
+        0 0 10px var(--mca-primary-color),
+        0 0 20px var(--mca-primary-color),
+        0 0 40px var(--mca-primary-color);
+    transform: scale(1.1); /* Added transform here to maintain consistency */
+}
+/* ORIGINAL .button:hover (kept separate for index.html) */
+.button:hover {
+  background: rgba(255, 85, 0, 0.15); 
+  border-color: #FF5500;
+  color: #FF5500;
+  box-shadow: 
+    0 0 10px #FF5500,
+    0 0 20px #FF3300,
+    0 0 40px #FF3300;
+  transform: scale(1.1);
+}
+
+/* --- Volume slider (Flowing inside wrapper) --- */
+#volumeSlider {
+    margin-top: 10px; 
+    
+    width: 150px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+#volumeSlider.show {
+  opacity: 1;
+  box-shadow: 0 0 10px #FF5500, 0 0 20px #FF3300;
+}
+
+/* --- Social buttons wrapper (Flowing inside wrapper) --- */
+.bottomButtons {
+    margin-top: 25px;
+    
+    display: flex;
+    flex-direction: row; 
+    gap: 20px;
+}
+
+/* --- Social buttons Style (Existing) --- */
+.social-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  font-size: 1.8rem;
+  border-radius: 8px; 
+  background: rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  text-decoration: none; 
+}
+
+.social-link:hover {
+  transform: scale(1.05);
+  background: rgba(255, 85, 0, 0.15); 
+  box-shadow: 
+    0 0 10px #FF5500, 
+    0 0 20px #FF3300, 
+    0 5px 20px rgba(0, 0, 0, 0.8);
+  color: #FF5500;
+}
+
+/* Hide audio but keep functional */
+audio {
+  visibility: hidden;
+  height: 0;
+}
+/* --- MCA BUTTON/SLIDER STYLES --- */
+.mca-button {
+    /* Uses base .button style, so only need to define hover/active states */
+    background: rgba(0, 255, 85, 0.1); 
+    border-color: rgba(0, 255, 85, 0.2);
+}
+
+.mca-button:hover {
+    background: rgba(0, 255, 85, 0.2); 
+    border-color: var(--mca-primary-color);
+    box-shadow: 
+        0 0 10px var(--mca-primary-color),
+        0 0 20px var(--mca-primary-color),
+        0 0 40px var(--mca-primary-color);
+}
+
+#mcaVolumeSlider {
+    /* Base Slider Style */
+    margin-top: 10px; 
+    width: 150px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Style for when the MCA slider is active/shown */
+#mcaVolumeSlider.show {
+  opacity: 1;
+  box-shadow: 0 0 10px var(--mca-primary-color), 0 0 20px var(--mca-primary-color);
+}
+
+/* Ensure focus visibility matches the MCA theme */
+.mca-button:focus-visible,
+#mcaVolumeSlider:focus-visible {
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(0, 255, 85, 0.5), 
+    0 0 10px rgba(0, 255, 85, 0.8);
+}

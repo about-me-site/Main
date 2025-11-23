@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>My Site</title>
+
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap">
+
+   <script src="https://kit.fontawesome.com/7741301c29.js" crossorigin="anonymous"></script>
+
+   <link rel="stylesheet" href="style.css">
+
+   <link rel="shortcut icon" type="image/png" href="media/icon.png">
+</head>
+
+<body>
+   <div id="loader-overlay">
+      <h2 id="loader-text">LOADING...</h2>
+   </div>
+
+   <nav class="top-nav">
+      <a href="#" class="nav-link active">MAIN</a>
+      <a href="mca.html" target="_blank" class="nav-link">MY PASSION</a>
+   </nav>
+   
+   <video autoplay loop muted playsinline id="background-video" poster="media/icon.png">
+      <source src="media/Black Hole 4K Video.mp4" type="video/mp4">
+   </video>
+
+   <main class="wrapper">
+
+      <audio autoplay loop muted id="myAudio">
+         <source src="media/horse.ogg" type="audio/ogg">
+         <source src="media/I feel what you feel, I know what you think - does it stop.mp3" type="audio/mp3">
+      </audio>
+
+      <button id="muteButton" class="button">Unmute</button>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5" aria-label="Volume control">
+
+      <nav class="bottomButtons">
+         <a href="https://www.instagram.com/mohaamed.ab/" target="_blank" class="social-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+         </a>
+
+         <button id="discordButton" class="social-link" aria-label="Copy Discord">
+            <i class="fa-brands fa-discord"></i>
+         </button>
+
+         <a href="https://www.youtube.com/channel/UCv417n91o8-HFEp-9xlMehQ" target="_blank" class="social-link" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+         </a>
+
+         <a href="https://www.twitch.tv/imluciz/videos" target="_blank" class="social-link" aria-label="Twitch">
+            <i class="fa-brands fa-twitch"></i>
+         </a>
+
+         <a href="https://x.com/mohaamed_ab" target="_blank" class="social-link" aria-label="X">
+            <i class="fa-brands fa-x-twitter"></i>
+         </a>
+      </nav>
+      
+   </main> 
+   
+   <script src="script.js"></script>
+</body>
+</html>
