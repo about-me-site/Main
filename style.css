@@ -7,8 +7,10 @@ body {
   color: #fff;
   background: #111;
   overflow-x: hidden;
-  overflow-y: hidden; 
+  /* FIX: Removed overflow-y: hidden; to allow vertical scrolling */
   cursor: default;
+  /* Add padding to the bottom of the page so content doesn't stick to the edge */
+  padding-bottom: 50px; 
 }
 
 /* --- TOP NAVIGATION BAR STYLES --- */
@@ -242,6 +244,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center; 
+  /* min-height: 100vh is fine, but if content is longer, it will expand */
   min-height: 100vh; 
   text-align: center;
   background: rgba(0, 0, 0, 0.45);
