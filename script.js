@@ -79,7 +79,6 @@ if (audio && muteButton && volumeSlider) {
 // Discord copy logic
 if (discordButton) {
     discordButton.addEventListener("click", () => {
-        // This is the correct Discord tag
         navigator.clipboard.writeText("0rr.").then(() => {
             discordButton.innerHTML = copiedIcon; 
             setTimeout(() => {
@@ -107,14 +106,14 @@ if (mcaAudio && mcaPlayButton && mcaVolumeSlider) {
     mcaPlayButton.addEventListener("click", () => {
         if (mcaAudio.paused) {
             mcaAudio.play().then(() => {
-                mcaPlayButton.innerHTML = '<i class="fa-solid fa-pause"></i> Pause MCA Anthem';
+                mcaPlayButton.innerHTML = '<i class="fa-solid fa-pause"></i> Mute';
                 mcaVolumeSlider.classList.add("show");
             }).catch(err => {
                 console.error("Audio playback failed:", err);
             });
         } else {
             mcaAudio.pause();
-            mcaPlayButton.innerHTML = '<i class="fa-solid fa-play"></i> Play MCA Anthem';
+            mcaPlayButton.innerHTML = '<i class="fa-solid fa-play"></i> Unmute';
             mcaVolumeSlider.classList.remove("show");
         }
     });
@@ -158,42 +157,5 @@ if (video1 && video2) {
     // Listener for Video 2 ending: restart Video 1
     video2.addEventListener('ended', () => {
         switchVideo(video2, video1);
-    });
-}
-
-
-/* ------------------------------------- */
-/* 5. MOBILE MENU TOGGLE FUNCTIONALITY (Both Pages) */
-/* ------------------------------------- */
-
-const navBar = document.getElementById("mainNav");
-const menuToggle = document.getElementById("menuToggle");
-
-if (navBar && menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        navBar.classList.toggle('open');
-        const isMenuOpen = navBar.classList.contains('open');
-        
-        // Change icon from bars to X
-        menuToggle.innerHTML = isMenuOpen 
-            ? '<i class="fa-solid fa-xmark"></i>' 
-            : '<i class="fa-solid fa-bars"></i>';
-        
-        // Update accessibility attribute
-        menuToggle.setAttribute('aria-expanded', isMenuOpen);
-    });
-    
-    // Optional: Close menu when a link is clicked
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navBar.classList.contains('open')) {
-                // Wait for the navigation to happen before closing the menu for a better feel
-                setTimeout(() => {
-                    navBar.classList.remove('open');
-                    menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }, 100); 
-            }
-        });
     });
 }
