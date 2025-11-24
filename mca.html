@@ -3,7 +3,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>MCA</title>
+   <title>MCA - Club du Doyen</title>
 
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap">
 
@@ -11,7 +11,7 @@
 
    <link rel="stylesheet" href="style.css">
 
-   <link rel="shortcut icon" type="image/png" href="media/MCA_logo.png">
+   <link rel="shortcut icon" type="image/png" href="media/icon.png">
 </head>
 
 <body class="mca-theme">
@@ -19,7 +19,10 @@
       <h2 id="loader-text">LOADING...</h2>
    </div>
 
-   <nav class="top-nav mca-theme-nav">
+   <nav class="top-nav mca-theme-nav" id="mainNav">
+      <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">
+         <i class="fa-solid fa-bars"></i>
+      </button>
       <a href="index.html" class="nav-link">MAIN</a>
       <a href="#" class="nav-link active">MCA PASSION</a>
    </nav>
@@ -45,7 +48,7 @@
       </audio>
 
       <button id="mcaPlayButton" class="mca-button button">
-          <i class="fa-solid fa-play"></i> Unmute
+          <i class="fa-solid fa-play"></i> Play MCA Anthem
       </button>
       <input type="range" id="mcaVolumeSlider" min="0" max="1" step="0.01" value="0.5" aria-label="MCA Volume control">
       
@@ -54,11 +57,11 @@
 <p> The soul of the <strong>MCA</strong> lives in the heart of Algiers from <strong>"Ram Jaw Lawlad Casbah Bab El Oued"</strong>. And me? I carry all of that in my blood. This page reflects who I am a devoted lover of <strong>MCA</strong>, shaped by its history, its pride, and the unbreakable spirit of the <strong>Doyen</strong>. </p>
       </div>
       <nav class="bottomButtons mca-social">
-         <a href="https://www.instagram.com/mcalger.officiel/" target="_blank" class="social-link" aria-label="MCA Instagram">
+         <a href="#" target="_blank" class="social-link" aria-label="MCA Instagram">
             <i class="fa-brands fa-instagram"></i>
          </a>
 
-         <a href="https://www.facebook.com/mcalger.officiel" target="_blank" class="social-link" aria-label="MCA Facebook">
+         <a href="#" target="_blank" class="social-link" aria-label="MCA Facebook">
             <i class="fa-brands fa-facebook-f"></i>
          </a>
       </nav>
@@ -67,5 +70,4 @@
    
    <script src="script.js"></script>
 </body>
-
 </html>
